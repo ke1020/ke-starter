@@ -13,22 +13,11 @@ module.exports = (env) => {
     return {
         mode: env.production ? 'production' : 'development',
         entry: {
-            KUploader: {
-                import: env.production ? src + '/js/KUploader.js' : src + '/index.js',
+            Hello: {
+                import: env.production ? src + '/js/Hello.js' : src + '/index.js',
                 // 防止重复引入，配置依赖
                 //dependOn: "shared",
-            },
-            FetchUploader: {
-                import: src + '/js/FetchUploader.js',
-            },
-            ImageProcessor: {
-                import: src + '/js/ImageProcessor.js',
-            },
-            // uploader: "./src/uploader.js",
-            // 公共依赖包 (与项目打包在一起)
-            // shared: ["webuploader"],
-            // 将第三方资源剥离打包到一个包中
-            //vendor: ["jquery", "bootstrap", "flatpickr", "typeahead.js"],
+            }
         },
         output: {
             filename: env.production ? '[name]-[hash:8].js' : '[name].bundle.js',
@@ -80,24 +69,24 @@ module.exports = (env) => {
                         // 进一步处理 CSS 文件，比如添加浏览器前缀，压缩 CSS 等
                         'postcss-loader',
                         /*
-          {
-            loader: "postcss-loader",
-            options: {
-              sourceMap: true,
-              postcssOptions: {
-                plugins: [
-                  [
-                    // `postcss-preset-env` 可以根据最新的规范和浏览器支持情况自动将现代 CSS 转换为兼容性更好的 CSS
-                    "postcss-preset-env",
-                    {
-                      // Options
-                    },
-                  ],
-                ],
-              },
-            },
-          },
-          */
+                        {
+                            loader: "postcss-loader",
+                            options: {
+                            sourceMap: true,
+                            postcssOptions: {
+                                plugins: [
+                                [
+                                    // `postcss-preset-env` 可以根据最新的规范和浏览器支持情况自动将现代 CSS 转换为兼容性更好的 CSS
+                                    "postcss-preset-env",
+                                    {
+                                    // Options
+                                    },
+                                ],
+                                ],
+                            },
+                            },
+                        },
+                        */
                         //{ loader: "sass-loader", options: { sourceMap: true } },
                     ],
                 },
@@ -112,27 +101,27 @@ module.exports = (env) => {
                     type: 'asset/resource',
                 },
                 /*
-      // csv 文件  (csv-loader)
-      // import Notes from './data.csv';
-      {
-        test: /\.(csv|tsv)$/i,
-        use: ["csv-loader"],
-      },
-      // xml 文件 (xml-loader)
-      // import Data from './data.xml';
-      {
-        test: /\.xml$/i,
-        use: ['xml-loader'],
-      },
-      // json5 (npm i json5 -D)
-      {
-        test: /\.json5$/i,
-        type: 'json',
-        parser: {
-          parse: json5.parse,
-        },
-      },
-      */
+                // csv 文件  (csv-loader)
+                // import Notes from './data.csv';
+                {
+                    test: /\.(csv|tsv)$/i,
+                    use: ["csv-loader"],
+                },
+                // xml 文件 (xml-loader)
+                // import Data from './data.xml';
+                {
+                    test: /\.xml$/i,
+                    use: ['xml-loader'],
+                },
+                // json5 (npm i json5 -D)
+                {
+                    test: /\.json5$/i,
+                    type: 'json',
+                    parser: {
+                    parse: json5.parse,
+                    },
+                },
+                */
                 // npm install -D babel-loader @babel/core @babel/preset-env
                 // js 文件
                 {
@@ -154,18 +143,18 @@ module.exports = (env) => {
                 title: 'Demo 页面',
                 inject: 'body',
                 /*
-            minify: {
-                removeComments: true, // 移除HTML中的注释
-                collapseWhitespace: true, // 删除空白符与换行符
-                minifyCSS: true, // 压缩内联css
-                minifyJS: true, // 压缩内联 js
-            },
-            */
+                minify: {
+                    removeComments: true, // 移除HTML中的注释
+                    collapseWhitespace: true, // 删除空白符与换行符
+                    minifyCSS: true, // 压缩内联css
+                    minifyJS: true, // 压缩内联 js
+                },
+                */
                 minify: false,
                 filename: `${dist}/index.html`,
                 template: `${src}/index.html`,
                 // 只引用 all-[hash].js 文件
-                chunks: ['KUploader'],
+                chunks: ['Hello'],
             }),
             // 将 CSS 从主应用程序中分离
             new MiniCssExtractPlugin({
@@ -190,13 +179,13 @@ module.exports = (env) => {
             // 压缩 css 、 js
             minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
             /*
-    // 单个 HTML 页面有多个入口时，将 runtime 单独打包
-    runtimeChunk: "single",
-    // 插件将 shared 公共依赖包分离到单独的 chunk
-    splitChunks: {
-      chunks: "all",
-    },
-    */
+            // 单个 HTML 页面有多个入口时，将 runtime 单独打包
+            runtimeChunk: "single",
+            // 插件将 shared 公共依赖包分离到单独的 chunk
+            splitChunks: {
+            chunks: "all",
+            },
+            */
         },
     };
 };
