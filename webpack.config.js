@@ -12,25 +12,25 @@ const dist = path.join(__dirname, 'dist');
 module.exports = (env) => {
     return {
         mode: env.production ? 'production' : 'development',
+        // 入口点
         entry: {
             Hello: {
-                import: env.production ? src + '/js/Hello.js' : src + '/index.js',
-                // 防止重复引入，配置依赖
-                //dependOn: "shared",
+                import: env.production ? src + '/js/index.js' : src + '/index.js',
             }
         },
         output: {
+            // 输出文件名
             filename: env.production ? '[name]-[hash:8].js' : '[name].bundle.js',
+            // 输出目录
             path: dist,
             // 开发环境需要将这里设置为 / , 否则 webpack-dev-server 会出现 listing directory / 错误
             publicPath: env.production ? './' : '/',
             // 生成分发前清理目录
             clean: true,
-
             // 暴露库名
             library: {
                 name: '[name]',
-                type: 'umd',
+                type: 'umd', // umd 规范
                 export: 'default',
             },
             umdNamedDefine: true,
@@ -38,7 +38,7 @@ module.exports = (env) => {
         },
         // 排除以下模块打包进 bundle.js，引用第三方 CDN 资源
         externals: {
-            jquery: 'jQuery', // jQuery 区分大小写，Q 不能写成小写。千万注意
+            jquery: 'jQuery', // jQuery 区分大小写，Q 不能写成小写
             bootstrap: 'bootstrap',
             lodash: {
                 commonjs: 'lodash',
@@ -47,6 +47,7 @@ module.exports = (env) => {
                 root: '_',
             },
         },
+        // 服务器配置
         devServer: {
             static: dist,
             hot: true,
@@ -156,6 +157,7 @@ module.exports = (env) => {
                 // 只引用 all-[hash].js 文件
                 chunks: ['Hello'],
             }),
+
             // 将 CSS 从主应用程序中分离
             new MiniCssExtractPlugin({
                 filename: env.production ? '[name]-[hash:8].css' : '[name].bundle.css',
@@ -164,6 +166,7 @@ module.exports = (env) => {
             }),
 
             /*
+            // 复制文件
             new CopyPlugin({
                 patterns: [
                     // 将 'public' 目录下的 'assets' 文件夹复制到输出目录

@@ -1,4 +1,6 @@
+import { Hello } from './js';
+
 
 window.addEventListener('load', function () {
-    window.alert('Hello World!');
+    Hello();
 });
