@@ -68,27 +68,7 @@ module.exports = (env) => {
                             },
                         },
                         // 进一步处理 CSS 文件，比如添加浏览器前缀，压缩 CSS 等
-                        'postcss-loader',
-                        /*
-                        {
-                            loader: "postcss-loader",
-                            options: {
-                            sourceMap: true,
-                            postcssOptions: {
-                                plugins: [
-                                [
-                                    // `postcss-preset-env` 可以根据最新的规范和浏览器支持情况自动将现代 CSS 转换为兼容性更好的 CSS
-                                    "postcss-preset-env",
-                                    {
-                                    // Options
-                                    },
-                                ],
-                                ],
-                            },
-                            },
-                        },
-                        */
-                        //{ loader: "sass-loader", options: { sourceMap: true } },
+                        'postcss-loader'
                     ],
                 },
                 // 图像 import image from './image.png'
