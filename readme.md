@@ -31,7 +31,7 @@ yarn start
 打包分发项目 (生产环境)
 
 ```bash
-npm run build
+yarn build
 ```
 
 ## 项目依赖
