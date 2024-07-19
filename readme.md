@@ -94,4 +94,8 @@ yarn build
 
 -   `style-loader`：是一个 `webpack` 加载器（`loader`），它用于在 `JavaScript` 模块中动态地注入 `CSS` 代码到 `DOM` 中。这意味着当你在 `JavaScript` 文件中导入一个 `CSS` 文件时，`style-loader` 会把 `CSS` 作为 `<style>` 标签插入到 `HTML` 文档的 `<head>` 部分，从而使得样式生效。这种方式特别适合开发环境，因为它不需要额外的构建步骤来提取 `CSS` 到单独的文件中，使得样式变更可以即时反映在页面上，便于快速迭代和调试。
 
+-   `sass`：是一种 `CSS` 预处理器，它能够将 `Sass/SCSS` 代码编译成普通的 `CSS` 代码
+
+-   `sass-loader`：是 `Webpack` 中的一个加载器（`loader`），它的作用是让 `Webpack` 能够理解和处理 `.sass` 或 `.scss` 文件。当 `Webpack` 遇到这些类型的文件时，`sass-loader` 会调用 `Sass` 库来把 `Sass/SCSS` 代码转换为 `CSS` 代码。
+
 -   `terser-webpack-plugin`：利用 `Terser` 库来压缩（也称为最小化）`JavaScript` 代码的插件

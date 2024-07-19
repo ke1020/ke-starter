@@ -1,7 +1,7 @@
 {
     "name": "ke-starter",
     "version": "1.0.0",
-    "description": "前端开发快速启动模板",
+    "description": "webpack 快速启动模板",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,6 +23,8 @@
         "postcss": "^8.4.33",
         "postcss-loader": "^8.0.0",
         "postcss-preset-env": "^9.3.0",
+        "sass": "^1.77.8",
+        "sass-loader": "^14.2.1",
         "style-loader": "^3.3.4",
         "terser-webpack-plugin": "^5.3.10",
         "webpack": "^5.90.0",

@@ -9,7 +9,17 @@
     </head>
 
     <body>
-        <div>我是红色的</div>
+        <div class="container py-5">
+            <div class="text-center">
+                <a href="https://www.koudingke.cn" target="_blank">
+                    <!-- 我们在 webpack.config.js 配置文件中，使用了 CopyPlugin （复制插件）将 /public 目录下的 assets 复制到输出目录，所以这里可以使用相对路径引用资源 -->
+                    <img src="./assets/logo128.png" width="90" />
+                </a>
+                <h4>抠丁客</h4>
+            </div>
+
+            <h2 class="text-center" style="padding: 10rem 0">恭喜，您的开发环境运行成功了。</h2>
+        </div>
         <script src="https://cdn.staticfile.net/jquery/3.7.1/jquery.min.js"></script>
         <script src="https://cdn.staticfile.net/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     </body>
