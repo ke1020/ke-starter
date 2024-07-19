@@ -116,10 +116,6 @@ module.exports = (env) => {
                  */
                 export: 'default',
             },
-            /**
-             * 指定在 UMD 模块中使用具名定义
-             */
-            umdNamedDefine: true,
         },
 
         /**
